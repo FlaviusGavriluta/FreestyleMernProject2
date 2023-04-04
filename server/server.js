@@ -28,22 +28,6 @@ app.use(function (req, res, next) {
   }
 })();
 
-app.get("/", async (req, res) => {
-  const imdbID = "asfasdasfas";
-  const your_rating = 9;
-
-  const favourites = new Favourites({
-    imdbID,
-    your_rating,
-  });
-
-  try {
-    const saved = await favourites.save();
-    res.json(saved);
-  } catch (err) {
-    res.status(400).json({ success: false });
-  }
-});
 
 //Start server
 app.listen(PORT, () => {

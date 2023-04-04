@@ -12,7 +12,7 @@ const createFavourites = async () => {
   try {
     const favourite = await Favourites.create({
       imdbID: "tt0372784",
-      your_rating: 7,
+      your_rating: 17,
     });
   } catch (error) {
     console.error(error);
