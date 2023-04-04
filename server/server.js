@@ -21,7 +21,7 @@ app.use(function (req, res, next) {
 (async () => {
     try {
       await mongoose.connect(
-        "",
+        "mongodb://localhost:27017/local/favourites",
         { useNewUrlParser: true, useUnifiedTopology: true }
       );
       console.log("Successfully connected to MongoDB database!");
@@ -30,6 +30,8 @@ app.use(function (req, res, next) {
     }
   })();
 
+
+  
 //Start server
 app.listen(PORT, () => {
     console.log(`Server listening on http://localhost:${PORT}`);
