@@ -32,14 +32,36 @@ export const Movies = () => {
 
   return (
     <div>
-      <Navbar input={setTitle} search={handleSearch} handleKeyPress={handleKeyPress} />
+      <Navbar
+        input={setTitle}
+        search={handleSearch}
+        handleKeyPress={handleKeyPress}
+      />
       {isPressed ? (
-        <div className="movie-grid">
-          {movieSearch.map((movie, i) => (
-            <div key={i}>
-              <img src={movie.Poster} alt={`Poster of ${movie.Title}`} />
-            </div>
-          ))}
+        <div className="container border-light">
+          <div className="row justify-content-md-start">
+            <h1 className="m-3">
+              <i class="bi bi-grip-vertical"></i>Titles
+            </h1>
+            {movieSearch.map((movie, i) => (
+              <div key={i}>
+                <div
+                  className="card border-light mb-3"
+                  style={{ maxWidth: "auto", maxHeight: "75px" }}
+                >
+                  <div className="row" style={{ alignItems: "center" }}>
+                    <div className="col-md-1">
+                      <img src={movie.Poster} style={{ maxWidth: "50px" }} />
+                    </div>
+                    <div className="col">
+                      <div className="fw-bold">{movie.Title}</div>
+                      <div className="text-secondary">{movie.Year}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       ) : (
         <div>No movies found</div>
