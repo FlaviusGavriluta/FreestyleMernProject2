@@ -19,6 +19,6 @@ const createFavourites = async () => {
   }
 };
 
-createFavourites();
+// createFavourites();
 
 module.exports = Favourites;

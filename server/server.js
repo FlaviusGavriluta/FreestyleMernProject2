@@ -28,6 +28,16 @@ app.use(function (req, res, next) {
   }
 })();
 
+app.get("/favorites", async (req, res) => {
+  try {
+    const favorites = await Favourites.find({});
+    res.send(JSON.stringify(favorites))
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Server error");
+  }
+});
+
 
 //Start server
 app.listen(PORT, () => {
