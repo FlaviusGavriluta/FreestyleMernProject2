@@ -1,24 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 const API_KEY = "75dd50d6";
 
 export const DisplayMovie = ({ imdbID }) => {
   const [movieDetails, setMovieDetails] = useState("");
+  const [wishlist, setWishlist] = useState([]);
 
-  const handleClick = async () => {
-    try {
-      const response = await fetch(
-        `https://www.omdbapi.com/?apikey=${API_KEY}&i=${imdbID}`
-      );
-      if (!response.ok) {
-        throw new Error("Network response was not ok");
+  useEffect(() => {
+    const handleClick = async () => {
+      try {
+        const response = await fetch(
+          `https://www.omdbapi.com/?apikey=${API_KEY}&i=${imdbID}`
+        );
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        const movie = await response.json();
+        setMovieDetails(movie);
+      } catch (err) {
+        console.log(err);
       }
-      const movie = await response.json();
-      setMovieDetails(movie);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-  handleClick();
+    };
+    handleClick();
+
+    fetch('http://127.0.0.1:3001/favorites')
+      .then(response => response.json())
+      .then(data => setWishlist(data));
+  }, [imdbID]);
 
   return (
     movieDetails && (
@@ -46,6 +53,7 @@ export const DisplayMovie = ({ imdbID }) => {
         <div className="row">
           <div className="col" style={{ position: "relative" }}>
             <img src={movieDetails.Poster} style={{ width: "40%" }} />
+            {console.log(wishlist)}
             <button
               className="btn btn-light"
               style={{
