@@ -32,7 +32,7 @@ export const Movies = () => {
 
   return (
     <div>
-      <Navbar input={setTitle} handleKeyPress={handleKeyPress} />
+      <Navbar input={setTitle} search={handleSearch} handleKeyPress={handleKeyPress} />
       {isPressed ? (
         <div className="movie-grid">
           {movieSearch.map((movie, i) => (

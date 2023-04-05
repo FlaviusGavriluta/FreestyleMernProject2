@@ -9,7 +9,7 @@ export const Navbar = ({ input, search, handleKeyPress }) => (
     <div className="container-fluid d-flex align-items-center">
       <Home />
       <Menu />
-      <Search input={input} handleKeyPress={handleKeyPress} />
+      <Search input={input} search={search} handleKeyPress={handleKeyPress} />
       <Watchlist />
       <Login />
     </div>

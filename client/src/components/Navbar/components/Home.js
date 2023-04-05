@@ -1,6 +1,6 @@
 export const Home = () => (
   <button
-    className="btn btn-warning ms-5 btn-home rounded-pill"
+    className="btn btn-warning ms-5 btn-home"
     style={{
       display: "flex",
       width: "64px",
