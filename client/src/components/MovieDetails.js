@@ -1,12 +1,34 @@
 import { useMovieDetails } from "./useMovieDetails";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const MovieDetails = ({ imdbID }) => {
   const { movieDetails, wishlist } = useMovieDetails(imdbID);
   const [isBookmarked, setIsBookmarked] = useState(false);
 
+  useEffect(() => {
+    setIsBookmarked(wishlist.some(movie => movie.imdbID === imdbID));
+  }, [wishlist]);
+
   const handleBookmarkClick = () => {
-    setIsBookmarked(!isBookmarked);
+    isBookmarked ? (
+      fetch("http://127.0.0.1:3001/favorites", {
+        method: 'DELETE',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({ imdbID: imdbID })
+      })
+      .then(setIsBookmarked(!isBookmarked))
+    ) : (
+      fetch("http://127.0.0.1:3001/favorites", {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({ imdbID: imdbID })
+      })
+      .then(setIsBookmarked(!isBookmarked))
+    )
   };
 
   return (
@@ -35,21 +57,23 @@ export const MovieDetails = ({ imdbID }) => {
         <div className="row">
           <div className="col" style={{ position: "relative" }}>
             <img src={movieDetails.Poster} style={{ width: "40%" }} />
-            <button
-              className="btn btn-light"
+            <span
               onClick={handleBookmarkClick}
               style={{
                 position: "absolute",
-                top: 0,
-                left: 12,
+                top: -10,
+                left: 7,
+                fontSize: 40,
+                color: "yellow"
               }}
             >
               {isBookmarked ? (
-                <i className="bi bi-bookmark-check-fill"></i>
+                <i className="bi bi-bookmark-check-fill p-0 m-0"></i>
               ) : (
-                <i className="bi bi-bookmark-plus-fill"></i>
+                <i className="bi bi-bookmark-plus-fill p-0 m-0"></i>
               )}
-            </button>
+            </span>
+
           </div>
           <div className="col-md-auto">Variable width content</div>
           <div className="col col-lg-2">3 of 3</div>
