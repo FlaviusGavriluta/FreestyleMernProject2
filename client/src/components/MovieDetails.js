@@ -35,21 +35,23 @@ export const MovieDetails = ({ imdbID }) => {
         <div className="row">
           <div className="col" style={{ position: "relative" }}>
             <img src={movieDetails.Poster} style={{ width: "40%" }} />
-            <button
-              className="btn btn-light"
+            <span
               onClick={handleBookmarkClick}
               style={{
                 position: "absolute",
-                top: 0,
-                left: 12,
+                top: -10,
+                left: 7,
+                fontSize: 40,
               }}
             >
-              {isBookmarked ? (
-                <i className="bi bi-bookmark-check-fill"></i>
-              ) : (
-                <i className="bi bi-bookmark-plus-fill"></i>
-              )}
-            </button>
+              <i
+                className={`bi ${
+                  isBookmarked
+                    ? "bi-bookmark-check-fill text-warning icon"
+                    : "bi-bookmark-plus-fill icon"
+                } p-0 m-0`}
+              ></i>
+            </span>
           </div>
           <div className="col-md-auto">Variable width content</div>
           <div className="col col-lg-2">3 of 3</div>
