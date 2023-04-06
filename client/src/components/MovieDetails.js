@@ -1,7 +1,13 @@
 import { useMovieDetails } from "./useMovieDetails";
+import { useState } from "react";
 
 export const MovieDetails = ({ imdbID }) => {
   const { movieDetails, wishlist } = useMovieDetails(imdbID);
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
+  const handleBookmarkClick = () => {
+    setIsBookmarked(!isBookmarked);
+  };
 
   return (
     movieDetails && (
@@ -29,16 +35,20 @@ export const MovieDetails = ({ imdbID }) => {
         <div className="row">
           <div className="col" style={{ position: "relative" }}>
             <img src={movieDetails.Poster} style={{ width: "40%" }} />
-            {console.log(wishlist)}
             <button
               className="btn btn-light"
+              onClick={handleBookmarkClick}
               style={{
                 position: "absolute",
                 top: 0,
                 left: 12,
               }}
             >
-              <i class="bi bi-bookmark-plus-fill"></i>
+              {isBookmarked ? (
+                <i className="bi bi-bookmark-check-fill"></i>
+              ) : (
+                <i className="bi bi-bookmark-plus-fill"></i>
+              )}
             </button>
           </div>
           <div className="col-md-auto">Variable width content</div>
