@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Navbar } from "./Navbar/Navbar";
-import { MoviesSearch } from "./MoviesSearch";
-import { DisplayMovie } from "./DisplayMovie";
+import { MovieSearchList } from "./MovieSearchList";
+import { MovieDetails } from "./MovieDetails";
 
 const API_KEY = "75dd50d6";
 
-export const Movies = () => {
+export const MovieSearchResults = () => {
   const [title, setTitle] = useState("");
   const [movieSearch, setMovieSearch] = useState([]);
   const [isSearching, setIsSearching] = useState(false);
@@ -46,13 +46,13 @@ export const Movies = () => {
         handleKeyPress={handleKeyPress}
       />
       {isSearching && !selectedMovie && (
-        <MoviesSearch
+        <MovieSearchList
           movies={movieSearch}
           title={title}
           onClick={handleMovieClick}
         />
       )}
-      {selectedMovie && <DisplayMovie imdbID={selectedMovie.imdbID} />}
+      {selectedMovie && <MovieDetails imdbID={selectedMovie.imdbID} />}
       {!isSearching && !selectedMovie && <div>No movies found</div>}
     </div>
   );

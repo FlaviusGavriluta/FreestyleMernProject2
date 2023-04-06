@@ -1,9 +1,9 @@
 import "./App.css";
 import React from "react";
-import { Movies } from "./components/Movies";
+import { MovieSearchResults } from "./components/MovieSearchResults";
 
 const App = () => {
-  return <Movies />;
+  return <MovieSearchResults />;
 };
 
 export default App;

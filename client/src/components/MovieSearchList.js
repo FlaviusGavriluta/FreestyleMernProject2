@@ -1,4 +1,4 @@
-export const MoviesSearch = ({ movies, title, onClick }) => (
+export const MovieSearchList = ({ movies, title, onClick }) => (
   <div className="container border-light">
     <div className="row justify-content-md-start">
       <h1 className="my-3">Search "{title}"</h1>
