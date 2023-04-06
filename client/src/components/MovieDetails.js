@@ -1,12 +1,34 @@
 import { useMovieDetails } from "./useMovieDetails";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export const MovieDetails = ({ imdbID }) => {
   const { movieDetails, wishlist } = useMovieDetails(imdbID);
   const [isBookmarked, setIsBookmarked] = useState(false);
 
+  useEffect(() => {
+    setIsBookmarked(wishlist.some(movie => movie.imdbID === imdbID));
+  }, [wishlist]);
+
   const handleBookmarkClick = () => {
-    setIsBookmarked(!isBookmarked);
+    isBookmarked ? (
+      fetch("http://127.0.0.1:3001/favorites", {
+        method: 'DELETE',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({ imdbID: imdbID })
+      })
+      .then(setIsBookmarked(!isBookmarked))
+    ) : (
+      fetch("http://127.0.0.1:3001/favorites", {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify({ imdbID: imdbID })
+      })
+      .then(setIsBookmarked(!isBookmarked))
+    )
   };
 
   return (
@@ -36,6 +58,7 @@ export const MovieDetails = ({ imdbID }) => {
           <div className="col" style={{ position: "relative" }}>
             <img src={movieDetails.Poster} style={{ width: "40%" }} />
             <span
+          
               onClick={handleBookmarkClick}
               style={{
                 position: "absolute",

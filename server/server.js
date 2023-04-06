@@ -11,6 +11,7 @@ app.use(express.json());
 app.use(cors());
 app.use(function (req, res, next) {
   res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // update to match the domain you will make the request from
+  res.header("Access-Control-Allow-Methods", "GET, POST, DELETE, PATCH")
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
@@ -35,6 +36,28 @@ app.get("/favorites", async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).send("Server error");
+  }
+});
+
+app.post('/favorites', (req, res) => {
+  const imdbID = req.body.imdbID;
+  const your_rating = 0;
+  const movie = new Favourites({
+  imdbID,
+  your_rating
+  });
+  movie.save()
+  .then(movie => res.json(movie))
+  .catch(err => res.status(400).json({ success: false }));
+});
+
+app.delete('/favorites', async (req, res) => {
+  console.log(req.body);
+  try {
+    const movie = await Favourites.findOneAndDelete({ imdbID: req.body.imdbID });
+    res.send(movie)
+  } catch (error) {
+    console.error(error);
   }
 });
 
