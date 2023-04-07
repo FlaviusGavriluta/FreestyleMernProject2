@@ -1,10 +1,9 @@
 export const Login = () => (
   <div className="dropdown mx-4">
-    <a
+    <button
       className="dropdown-toggle d-flex align-items-center hidden-arrow"
-      href="#"
       id="navbarDropdownMenuAvatar"
-      role="button"
+      type="button"
       data-mdb-toggle="dropdown"
       aria-expanded="false"
     >
@@ -15,23 +14,23 @@ export const Login = () => (
         alt="Black and White Portrait of a Man"
         loading="lazy"
       />
-    </a>
+    </button>
     <ul
       className="dropdown-menu dropdown-menu-end"
       aria-labelledby="navbarDropdownMenuAvatar"
     >
       <li>
-        <a className="dropdown-item" href="#">
+        <a className="dropdown-item">
           My profile
         </a>
       </li>
       <li>
-        <a className="dropdown-item" href="#">
+        <a className="dropdown-item">
           Settings
         </a>
       </li>
       <li>
-        <a className="dropdown-item" href="#">
+        <a className="dropdown-item">
           Logout
         </a>
       </li>

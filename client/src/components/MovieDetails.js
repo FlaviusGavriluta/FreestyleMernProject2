@@ -6,29 +6,29 @@ export const MovieDetails = ({ imdbID }) => {
   const [isBookmarked, setIsBookmarked] = useState(false);
 
   useEffect(() => {
-    setIsBookmarked(wishlist.some(movie => movie.imdbID === imdbID));
+    setIsBookmarked(wishlist.some((movie) => movie.imdbID === imdbID));
   }, [wishlist]);
 
   const handleBookmarkClick = () => {
-    isBookmarked ? (
-      fetch("http://127.0.0.1:3001/favorites", {
-        method: 'DELETE',
-        headers: {
-          'Content-type': 'application/json'
-        },
-        body: JSON.stringify({ imdbID: imdbID })
-      })
-      .then(setIsBookmarked(!isBookmarked))
-    ) : (
-      fetch("http://127.0.0.1:3001/favorites", {
-        method: 'POST',
-        headers: {
-          'Content-type': 'application/json'
-        },
-        body: JSON.stringify({ imdbID: imdbID })
-      })
-      .then(setIsBookmarked(!isBookmarked))
-    )
+    isBookmarked
+      ? fetch("http://127.0.0.1:3001/favorites", {
+          method: "DELETE",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({ imdbID: imdbID }),
+        }).then(() => {
+          setIsBookmarked(!isBookmarked);
+        })
+      : fetch("http://127.0.0.1:3001/favorites", {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({ imdbID: imdbID }),
+        }).then(() => {
+          setIsBookmarked(!isBookmarked);
+        });
   };
 
   return (
@@ -58,21 +58,20 @@ export const MovieDetails = ({ imdbID }) => {
           <div className="col" style={{ position: "relative" }}>
             <img src={movieDetails.Poster} style={{ width: "40%" }} />
             <span
-          
               onClick={handleBookmarkClick}
               style={{
                 position: "absolute",
-                top: -10,
-                left: 7,
-                fontSize: 40,
+                top: -14,
+                left: 6,
+                fontSize: 50,
               }}
             >
               <i
-                className={`bi ${
+                className={`bi position-relative ${
                   isBookmarked
-                    ? "bi-bookmark-check-fill text-warning icon"
-                    : "bi-bookmark-plus-fill icon"
-                } p-0 m-0`}
+                    ? "bi-bookmark-check-fill text-warning"
+                    : "bi-bookmark-plus-fill"
+                } icon`}
               ></i>
             </span>
           </div>

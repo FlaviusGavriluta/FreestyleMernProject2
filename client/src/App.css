@@ -32,10 +32,9 @@
 }
 
 @font-face {
-  font-family: 'Kenyan Coffee';
-  src: url('./components/Navbar/font/kenyan\ coffee\ bd.otf') format('truetype');
+  font-family: "Kenyan Coffee";
+  src: url("./components/Navbar/font/kenyan\ coffee\ bd.otf") format("truetype");
 }
-
 
 .search-form {
   display: flex;
@@ -74,29 +73,24 @@
     flex-direction: column;
     align-items: stretch;
   }
-  
+
   .search-input {
     height: 30px;
     font-size: 14px;
     margin-bottom: 10px;
   }
-  
+
   .search-button {
     margin-left: 0;
   }
 }
 
 .icon {
-  color: black;
+  color: gray;
   opacity: 0.5;
 }
 
 .icon:hover {
-  color: black;
+  color: rgb(158, 136, 136);
   opacity: 1;
 }
-
-
-
-
-
