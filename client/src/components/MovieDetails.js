@@ -55,28 +55,81 @@ export const MovieDetails = ({ imdbID }) => {
           </div>
         </div>
         <div className="row">
-          <div className="col" style={{ position: "relative" }}>
-            <img src={movieDetails.Poster} style={{ width: "40%" }} />
-            <span
-              onClick={handleBookmarkClick}
-              style={{
-                position: "absolute",
-                top: -14,
-                left: 6,
-                fontSize: 50,
-              }}
-            >
-              <i
-                className={`bi position-relative ${
-                  isBookmarked
-                    ? "bi-bookmark-check-fill text-warning"
-                    : "bi-bookmark-plus-fill"
-                } icon`}
-              ></i>
-            </span>
+          <div className="col-md-auto" style={{ position: "relative" }}>
+            <div className="card" style={{ width: "23vw", height: "28vh" }}>
+              <img src={movieDetails.Poster} />
+              <span
+                onClick={handleBookmarkClick}
+                style={{
+                  position: "absolute",
+                  top: -14,
+                  left: -7,
+                  fontSize: 50,
+                }}
+              >
+                <i
+                  className={`bi position-relative ${
+                    isBookmarked
+                      ? "bi-bookmark-check-fill text-warning"
+                      : "bi-bookmark-plus-fill"
+                  } icon`}
+                ></i>
+              </span>
+            </div>
           </div>
-          <div className="col-md-auto">Variable width content</div>
-          <div className="col col-lg-2">3 of 3</div>
+          <div className="col mt-5">
+            <div className="card border-0" style={{ height: "28vh" }}>
+              <div className="card-body">
+                <div className="card-title"></div>
+                <h4 className="card-title">{movieDetails.Plot}</h4>
+              </div>
+              <ul className="list-group list-group-flush">
+                <li className="list-group-item">
+                  <div className="row">
+                    <div className="col-md-auto">
+                      <h5 className="fw-bold">Director</h5>
+                    </div>
+
+                    <div className="col-md-auto text-primary">
+                      <h5>{movieDetails.Director}</h5>
+                    </div>
+                  </div>
+                </li>
+                <li className="list-group-item">
+                  <div className="row">
+                    <div className="col-md-auto">
+                      <h5 className="fw-bold">Writers</h5>
+                    </div>
+
+                    <div className="col-md-auto text-primary">
+                      <div className="col-md-auto text-primary">
+                        <h5 className="dot">
+                          {movieDetails.Writer.replace(/,\s/g, " · ")}
+                        </h5>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li className="list-group-item">
+                  <div className="row">
+                    <div className="col-md-auto">
+                      <h5 className="fw-bold">Stars</h5>
+                    </div>
+
+                    <div className="col-md-auto text-primary">
+                      <h5>{movieDetails.Actors.replace(/,\s/g, " 	· ")}</h5>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <div className="card-body">
+                <button className="border-0 bg-success">
+                  {movieDetails.Metascore}
+                </button>{" "}
+                Metascore
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     )

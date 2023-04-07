@@ -94,3 +94,7 @@
   color: rgb(158, 136, 136);
   opacity: 1;
 }
+
+.movie-details-container {
+  background-color: gray;
+}
