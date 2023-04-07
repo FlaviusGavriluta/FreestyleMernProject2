@@ -52,7 +52,6 @@ app.post('/favorites', (req, res) => {
 });
 
 app.delete('/favorites', async (req, res) => {
-  console.log(req.body);
   try {
     const movie = await Favourites.findOneAndDelete({ imdbID: req.body.imdbID });
     res.send(movie)
