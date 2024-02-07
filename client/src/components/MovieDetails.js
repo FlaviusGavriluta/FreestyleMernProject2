@@ -7,7 +7,7 @@ export const MovieDetails = ({ imdbID }) => {
 
   useEffect(() => {
     setIsBookmarked(wishlist.some((movie) => movie.imdbID === imdbID));
-  }, [wishlist]);
+  }, [wishlist, imdbID]);
 
   const handleBookmarkClick = () => {
     isBookmarked
