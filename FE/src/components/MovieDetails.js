@@ -57,7 +57,7 @@ export const MovieDetails = ({ imdbID }) => {
         <div className="row">
           <div className="col-md-auto" style={{ position: "relative" }}>
             <div className="card" style={{ width: "23vw", height: "28vh" }}>
-              <img src={movieDetails.Poster} />
+              <img src={movieDetails.Poster} alt=""/>
               <span
                 onClick={handleBookmarkClick}
                 style={{
