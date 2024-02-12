@@ -61,7 +61,7 @@ app.delete('/favorites', async (req, res) => {
 });
 
 
-//Start server
+//Start BE ExpressJS
 app.listen(PORT, () => {
   console.log(`Server listening on http://localhost:${PORT}`);
 });
