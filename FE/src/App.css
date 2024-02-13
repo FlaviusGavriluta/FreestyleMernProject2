@@ -1,100 +1,99 @@
 .App {
-  text-align: center;
+    text-align: center;
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+    height: 40vmin;
+    pointer-events: none;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 @font-face {
-  font-family: "Kenyan Coffee";
-  src: url("./components/Navbar/font/kenyan\ coffee\ bd.otf") format("truetype");
+    font-family: "Kenyan Coffee";
+    src: url("./components/Navbar/font/kenyan\ coffee\ bd.otf") format("truetype");
 }
 
 .search-form {
-  display: flex;
-  flex-grow: 1;
-  align-items: center;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
 }
 
 .search-input {
-  flex-grow: 1;
-  height: 30px;
-  font-size: 18px;
-  padding: 0 10px;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    flex-grow: 1;
+    width: 700px;
+    height: 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 .search-button {
-  margin-left: 10px;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px;
-  font-size: 18px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 18px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
 }
 
 @media screen and (max-width: 768px) {
-  .search-input {
-    font-size: 16px;
-  }
+    .search-input {
+        font-size: 16px;
+    }
 }
 
 @media screen and (max-width: 576px) {
-  .search-form {
-    flex-direction: column;
-    align-items: stretch;
-  }
+    .search-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
 
-  .search-input {
-    height: 30px;
-    font-size: 14px;
-    margin-bottom: 10px;
-  }
+    .search-input {
+        height: 30px;
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
 
-  .search-button {
-    margin-left: 0;
-  }
+    .search-button {
+        margin-left: 0;
+    }
 }
 
 .icon {
-  color: gray;
-  opacity: 0.5;
+    color: gray;
+    opacity: 0.5;
 }
 
 .icon:hover {
-  color: rgb(158, 136, 136);
-  opacity: 1;
+    color: rgb(158, 136, 136);
+    opacity: 1;
 }
 
 .movie-details-container {
-  background-color: gray;
+    background-color: gray;
 }

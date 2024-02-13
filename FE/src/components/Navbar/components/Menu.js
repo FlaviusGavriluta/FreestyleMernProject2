@@ -1,6 +1,6 @@
 export const Menu = () => (
   <button
-    className="btn btn-dark btn-menu ms-1"
+    className="btn btn-dark btn-menu"
     style={{ display: "flex", alignItems: "center", height: "30px" }}
   >
     <span
@@ -8,7 +8,7 @@ export const Menu = () => (
       className="bi bi-list"
       style={{ fontSize: "24px" }}
     ></span>
-    <span className="fw-bold ms-1" style={{ fontSize: "2.5vh" }}>
+    <span className="fw-bold ms-1" style={{ fontSize: "1.5vh" }}>
       Menu
     </span>
   </button>

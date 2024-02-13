@@ -7,7 +7,7 @@ export const Search = ({ input, search, handleKeyPress }) => {
   };
 
   return (
-    <form className="search-form mx-3" role="search" onSubmit={handleSubmit}>
+    <form className="search-form" role="search" onSubmit={handleSubmit}>
       <input
         className="search-input"
         type="search"
